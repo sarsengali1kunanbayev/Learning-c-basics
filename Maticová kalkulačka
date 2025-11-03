@@ -1,0 +1,52 @@
+#include <stdio.h>
+
+#define MAX 20
+
+void nacitajMaticu(int m[MAX][MAX], int r, int s) {
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < s; j++) {
+            scanf("%d", &m[i][j]);
+        }
+    }
+}
+
+void vypocitajMaticu(int a[MAX][MAX], int b[MAX][MAX], int c[MAX][MAX], int r, int s, int kodOperacie) {
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < s; j++) {
+            if (kodOperacie == 1)
+                c[i][j] = a[i][j] + b[i][j];
+            else if (kodOperacie == -1)
+                c[i][j] = a[i][j] - b[i][j];
+        }
+    }
+}
+
+void vypisMaticu(int m[MAX][MAX], int r, int s) {
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < s; j++) {
+            printf("%d", m[i][j]);
+            if (j != s - 1)
+                printf(" ");
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int r, s;
+    int A[MAX][MAX], B[MAX][MAX], C[MAX][MAX];
+    int kod;
+
+    scanf("%d %d", &r, &s);
+
+    nacitajMaticu(A, r, s);
+    nacitajMaticu(B, r, s);
+
+    scanf("%d", &kod);
+
+    vypocitajMaticu(A, B, C, r, s, kod);
+
+    vypisMaticu(C, r, s);
+
+    return 0;
+}
