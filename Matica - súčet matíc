@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_SIZE 20
+
+void read_matrix(int matrix[MAX_SIZE][MAX_SIZE], int rows, int cols) {
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+}
+
+void add_matrices(
+    int A[MAX_SIZE][MAX_SIZE],
+    int B[MAX_SIZE][MAX_SIZE],
+    int C[MAX_SIZE][MAX_SIZE],
+    int rows, int cols
+) {
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            C[i][j] = A[i][j] + B[i][j];
+        }
+    }
+}
+
+void print_matrix(int matrix[MAX_SIZE][MAX_SIZE], int rows, int cols) {
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            printf("%d", matrix[i][j]);
+            if (j < cols - 1) {
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int rows, cols;
+    int A[MAX_SIZE][MAX_SIZE];
+    int B[MAX_SIZE][MAX_SIZE];
+    int C[MAX_SIZE][MAX_SIZE];
+
+    scanf("%d %d", &rows, &cols);
+
+    read_matrix(A, rows, cols);
+    read_matrix(B, rows, cols);
+
+    add_matrices(A, B, C, rows, cols);
+
+    print_matrix(C, rows, cols);
+
+    return 0;
+}
