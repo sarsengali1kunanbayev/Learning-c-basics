@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+long long faktorial(int x) {
+    long long vysledok = 1;
+    for (int i = 2; i <= x; i++) {
+        vysledok *= i;
+    }
+    return vysledok;
+}
+
+long long Kombinacie(int n, int k) {
+    return faktorial(n) / (faktorial(n - k) * faktorial(k));
+}
+
+int main() {
+    int n, k;
+    scanf("%d %d", &n, &k);
+    printf("%lld\n", Kombinacie(n, k));
+    return 0;
+}
