@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n;
+    int arr[100];
+    double sum = 0, average;
+
+    scanf("%d", &n);
+
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+        sum += arr[i];
+    }
+
+    average = sum / n;
+
+    for (int i = 0; i < n; i++) {
+        printf("%.2f ", arr[i] - average);
+    }
+
+    printf("\n");
+    return 0;
+}
