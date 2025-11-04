@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_INPUT 1000
+#define MAX_NUMBER 10
+
+void nacitaj_udaje(int histogram[MAX_NUMBER + 1], int n) {
+    int x;
+    for (int i = 0; i < n; ++i) {
+        scanf("%d", &x);
+        if (x >= 1 && x <= MAX_NUMBER) {
+            histogram[x]++;
+        }
+    }
+}
+
+int main() {
+    int n;
+    int histogram[MAX_NUMBER + 1] = {0};
+
+    scanf("%d", &n);
+
+    nacitaj_udaje(histogram, n);
+
+    int max_value = 0;
+    int max_index = 1;
+
+    for (int i = 1; i <= MAX_NUMBER; ++i) {
+        if (histogram[i] > max_value) {
+            max_value = histogram[i];
+            max_index = i;
+        }
+    }
+
+    printf("%d\n", max_index);
+    return 0;
+}
